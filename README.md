@@ -2,7 +2,7 @@
 ## How to use
 1. Clone the repo to your machine
 ```
-$ git clone https://github.com/chadwinjdeysel/FinanceTracker.git
+$ git clone https://github.com/lesswixx/FinanceTracker.git
 ```
 2. Open the solution folder in terminal of choice
 3. Enter the project folder
