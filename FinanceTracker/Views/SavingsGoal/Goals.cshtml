@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<SavingsGoalProgressViewModel>
 
-@{ 
-    ViewData["Title"] = "Savings Goals";
-
+@{
+    ViewData["Title"] = "Цели накопления";
 }
 
-<a asp-action="Add"
-   class="btn btn-primary mb-3">
-    Add New Savings Goal
+<a asp-action="Add" class="btn btn-primary mb-3">
+    Добавить новую цель накопления
 </a>
 
 <div class="row">
@@ -19,10 +17,9 @@
 
             <div class="col-4">
                 <div class="card h-100 shadow-sm">
-                    <div class="card-body d-flex flex-column ">
+                    <div class="card-body d-flex flex-column">
 
                         <div class="row justify-content-between">
-
                             <h4 class="card-title col-11">
                                 @item.SavingsGoal.Name
 
@@ -33,45 +30,28 @@
                             </h4>
 
                             <div class="dropdown dropleft">
-                                <a class="text-muted"
-                                   href="#"
-                                   role="button"
-                                   id="dropdownMenu"
-                                   data-toggle="dropdown"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">
+                                <a class="text-muted" href="#" role="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="oi oi-ellipses" style="transform: rotate(90deg)"></span>
                                 </a>
 
                                 <div class="dropdown-menu col-1" aria-labelledby="dropdownMenu">
-                                    <a asp-action="Details"
-                                       asp-route-id="@item.SavingsGoal.Id"
-                                       class="dropdown-item">
-                                        View Progress
+                                    <a asp-action="Details" asp-route-id="@item.SavingsGoal.Id" class="dropdown-item">
+                                        Просмотр прогресса
                                     </a>
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a asp-action="SetAsPinned"
-                                       asp-route-id="@item.SavingsGoal.Id"
-                                       class="dropdown-item">
-                                        Pin To Dashboard
+                                    <a asp-action="SetAsPinned" asp-route-id="@item.SavingsGoal.Id" class="dropdown-item">
+                                        Закрепить на панели
                                     </a>
 
-                                    <a asp-action="Edit"
-                                       asp-route-id="@item.SavingsGoal.Id"
-                                       class="dropdown-item">
-                                        Edit
+                                    <a asp-action="Edit" asp-route-id="@item.SavingsGoal.Id" class="dropdown-item">
+                                        Редактировать
                                     </a>
 
-                                    <a href="#"
-                                       role="button"
-                                       data-toggle="modal"
-                                       data-target="#@modalName"
-                                       class="dropdown-item">
-                                        Delete
+                                    <a href="#" role="button" data-toggle="modal" data-target="#@modalName" class="dropdown-item">
+                                        Удалить
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -81,33 +61,21 @@
 
                         @if (item.SavingsGoal.HasDeadline)
                         {
-                            <small class="text-danger"><p>Deadline - @item.SavingsGoal.Deadline.ToShortDateString()</p></small>
+                            <small class="text-danger"><p>Крайний срок - @item.SavingsGoal.Deadline.ToShortDateString()</p></small>
                         }
 
                         <div class="progress mt-auto">
-                            <div class="progress-bar"
-                                 role="progressbar"
-                                 aria-valuenow="@item.Progress"
-                                 aria-valuemin="0"
-                                 aria-valuemax="100"
-                                 style="width: @item.Progress%">
-                            </div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="@item.Progress" aria-valuemin="0" aria-valuemax="100" style="width: @item.Progress%"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade"
-                 id="@modalName"
-                 tabindex="-1"
-                 role="dialog"
-                 aria-labelledby="@modalName"
-                 aria-hidden="true">
-
+            <div class="modal fade" id="@modalName" tabindex="-1" role="dialog" aria-labelledby="@modalName" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete this savings goal?</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Удалить эту цель накопления?</h5>
 
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -123,25 +91,22 @@
                             <span class="text-danger">@item.SavingsGoal.Deadline.ToShortDateString()</span>
                             <p>@item.SavingsGoal.Description</p>
 
-                            <p class="text-danger"><small>* by deleting this savings goal, you will delete ALL transactions related to this category.</small></p>
+                            <p class="text-danger"><small>* Удалив эту цель накопления, вы удалите ВСЕ связанные с ней транзакции.</small></p>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                            <a asp-action="Delete"
-                               asp-route-id="@item.SavingsGoal.Id"
-                               class="btn btn-danger">
-                                Delete
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Закрыть</button>
+                            <a asp-action="Delete" asp-route-id="@item.SavingsGoal.Id" class="btn btn-danger">
+                                Удалить
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         }
-
     }
     else
     {
-        <p>Nothing was found..</p>
+        <p>Ничего не найдено..</p>
     }
 </div>

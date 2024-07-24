@@ -1,8 +1,6 @@
 ﻿@model BudgetUsedViewModel
 
 <div class="card h-100 shadow-sm">
-
-
     @if (Model.CategoriesInBudget > 0)
     {
         <div class="dropdown dropleft card-menu">
@@ -20,22 +18,21 @@
                 <a asp-controller="Budget"
                    asp-action="Index"
                    class="dropdown-item">
-                    View Details
+                    Просмотр деталей
                 </a>
 
                 <a asp-controller="Budget"
                    asp-action="Edit"
                    asp-route-id="@Model.BudgetId"
                    class="dropdown-item">
-                    Edit Budget
+                    Редактировать бюджет
                 </a>
             </div>
         </div>
 
         <div class="card-body">
-
-            <p class="text-larger text-center my-0">Budget Used</p>
-            <p class="text-center text-muted my-0"><small>this month</small></p>
+            <p class="text-larger text-center my-0">Использование бюджета</p>
+            <p class="text-center text-muted my-0"><small>в этом месяце</small></p>
 
             <div class="col-8 mx-auto my-1">
                 <canvas id="budgetUsedChart" width="100%" height="100%"></canvas>
@@ -45,22 +42,19 @@
                 </div>
             </div>
 
-
             <div class="row" style="margin-top: 70px">
                 <div class="col-6">
                     <div>
                         <h1 class="display-4 text-center text-primary my-0">@Model.CategoriesInBudget</h1>
-
-                        <p class="m-0 text-center">Categories</p>
-                        <p class="m-0 text-center text-muted"><small>used in budget</small></p>
+                        <p class="m-0 text-center">Категории</p>
+                        <p class="m-0 text-center text-muted"><small>использованы в бюджете</small></p>
                     </div>
                 </div>
 
                 <div class="col-6">
                     <h1 class="display-4 text-center text-danger my-0">@Model.CategoriesOverBudget</h1>
-
-                    <p class="m-0 text-center">Categories</p>
-                    <p class="m-0 text-center text-muted"><small>over budget</small></p>
+                    <p class="m-0 text-center">Категории</p>
+                    <p class="m-0 text-center text-muted"><small>превысили бюджет</small></p>
                 </div>
             </div>
         </div>
@@ -68,23 +62,21 @@
     else
     {
         <div class="card-body text-center">
-            <p class="text-muted m-0">No budget has been set for this month</p>
+            <p class="text-muted m-0">Бюджет на этот месяц не установлен</p>
 
             <a asp-action="Add"
                asp-controller="Budget"
                class="text-larger">
-                create budget for @DateTime.Now.ToString("MMMM")
+                создать бюджет для @DateTime.Now.ToString("MMMM")
             </a>
         </div>
     }
-
 </div>
 
 @if (Model.CategoriesInBudget > 0)
 {
     <script>
     var ctx = document.getElementById('budgetUsedChart').getContext('2d');
-    var chart = new Chart(ctx, @Html.Raw(Json.Serialize(Model.Chart)))
-
+    var chart = new Chart(ctx, @Html.Raw(Json.Serialize(Model.Chart)));
     </script>
 }

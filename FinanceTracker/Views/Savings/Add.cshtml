@@ -1,50 +1,44 @@
 ﻿@model Saving
 
-@{ 
-    ViewData["Title"] = "Add new Saving";
-} 
+@{
+    ViewData["Title"] = "Редактировать накопление";
+}
 
 <div class="card-container">
     <div class="card col-8 shadow-sm">
         <div class="card-body">
 
-            <form method="post"
-                  asp-action="Add">
+            <form method="post" asp-action="Edit">
 
                 <input hidden asp-for="SavingsGoalId" />
+                <input hidden asp-for="Id" />
 
                 <div class="row">
                     <div class="form-group col-6">
                         <label asp-for="Amount"></label>
-                        <input asp-for="Amount"
-                               type="text"
-                               class="form-control" />
-
+                        <input asp-for="Amount" type="text" class="form-control" />
                         <span asp-validation-for="Amount" class="text-danger"></span>
                     </div>
 
                     <div class="form-group col-6">
                         <label asp-for="Date"></label>
-                        <input asp-for="Date"
-                               type="date"
-                               class="form-control"
-                               value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now)" />
+                        <input asp-for="Date" type="date" class="form-control" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now)" />
                     </div>
 
                     <div class="form-group col-6">
                         <label asp-for="Type"></label>
-                        <select asp-for="Type"
-                                class="form-control">
-                            <option value="0">Addition</option>
-                            <option value="1">Subtraction</option>
+                        <select asp-for="Type" class="form-control">
+                            <option value="0">Пополнение</option>
+                            <option value="1">Снятие</option>
                         </select>
                     </div>
                 </div>
 
-                <button type="submit"
-                        class="btn btn-primary">
-                    Record New Saving
-                </button>
+                <div class="form-group my-3">
+                    <button type="submit" class="btn btn-primary">
+                        Редактировать накопление
+                    </button>
+                </div>
             </form>
 
         </div>

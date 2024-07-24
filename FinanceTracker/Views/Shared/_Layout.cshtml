@@ -1,21 +1,22 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Легко отслеживайте свои финансы с нашим приложением Финансовый трекер." />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="~/images/favicon.ico" type="image/x-icon" />
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script> <!-- Обновлено на более новую версию -->
     @RenderSection("Styles", required: false)
 </head>
 <body>
 
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2" href="#">Finance Tracker</a>
+        <a class="navbar-brand col-sm-3 col-md-2" href="#">Финансовый трекер</a>
 
         <span class="nav-item mr-auto text-light"
               style="font-size: 175%">
@@ -38,35 +39,35 @@
                             <a class="nav-link"
                                asp-action="Index"
                                asp-controller="Home">
-                                Dashboard
+                                Панель управления
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-action="Index"
                                asp-controller="Expense">
-                                Expenses
+                                Расходы
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-action="Index"
                                asp-controller="Budget">
-                                Budget Manager
+                                Управление бюджетом
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-controller="SavingsGoal"
                                asp-action="Goals">
-                                Savings Tracker
+                                Трекер сбережений
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-action="Index"
                                asp-controller="Category">
-                                Categories
+                                Категории
                             </a>
                         </li>
                     </ul>
@@ -78,7 +79,6 @@
             </main>
         </div>
     </div>
-
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

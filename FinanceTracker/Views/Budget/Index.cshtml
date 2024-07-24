@@ -1,7 +1,7 @@
 ﻿@model BudgetIndexViewModel
 
 @{
-    ViewData["Title"] = "Budget Manager";
+    ViewData["Title"] = "Управление бюджетом";
     var budgetId = Model.Budget.Select(x => x.BudgetId).FirstOrDefault();
 }
 
@@ -25,10 +25,10 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Budgeted Price</th>
-                            <th>This month so far</th>
-                            <th>Difference</th>
+                            <th>Категория</th>
+                            <th>Бюджетная сумма</th>
+                            <th>В этом месяце</th>
+                            <th>Разница</th>
                             <th>
                                 <div class="dropdown dropleft">
                                     <a class="text-muted"
@@ -45,7 +45,7 @@
                                         <a asp-action="Edit"
                                            asp-route-id="@budgetId"
                                            class="dropdown-item">
-                                            Edit this Budget
+                                            Редактировать этот бюджет
                                         </a>
 
                                         <a href="#"
@@ -53,7 +53,7 @@
                                            data-toggle="modal"
                                            data-target="#budgetModal"
                                            class="dropdown-item">
-                                            Delete this budget
+                                            Удалить этот бюджет
                                         </a>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                                    asp-controller="Expense"
                                                    asp-route-category="@item.CategoryId"
                                                    class="dropdown-item">
-                                                    View Expenses
+                                                    Просмотр расходов
                                                 </a>
                                             </div>
                                         </div>
@@ -131,7 +131,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Delete this budget?</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Удалить этот бюджет?</h5>
 
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -139,15 +139,15 @@
                             </div>
 
                             <div class="modal-body">
-                                <p>Your budget for @DateTime.Now.ToString("MMMM") @DateTime.Now.Year</p>
+                                <p>Ваш бюджет на @DateTime.Now.ToString("MMMM") @DateTime.Now.Year</p>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Закрыть</button>
                                 <a asp-action="Delete"
                                    asp-route-id="@budgetId"
                                    class="btn btn-danger">
-                                    Delete
+                                    Удалить
                                 </a>
                             </div>
                         </div>
@@ -156,14 +156,13 @@
             }
             else
             {
-                <p style="font-size: 175%">Uh oh... You don't have a budget setup for this month :(</p>
+                <p style="font-size: 175%">Ой... У вас нет бюджета на этот месяц :(</p>
 
                 <a asp-action="Add"
                    class="btn btn-primary">
-                    Setup budget for this month
+                    Настроить бюджет на этот месяц
                 </a>
             }
         </div>
     </div>
 </div>
-

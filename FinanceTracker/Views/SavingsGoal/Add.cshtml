@@ -1,51 +1,37 @@
 ﻿@model FinanceTracker.Models.SavingsGoal
 
 @{
-    ViewData["Title"] = "Add New Savings Goal";
+    ViewData["Title"] = "Добавить новую цель накопления";
 }
 
 <div class="card-container">
     <div class="card col-8 shadow-sm">
         <div class="card-body">
 
-            <form asp-action="Add"
-                  method="post">
-
+            <form asp-action="Add" method="post">
                 <div class="row">
                     <div class="form-group col-6">
                         <label asp-for="Name"></label>
-                        <input asp-for="Name"
-                               type="text"
-                               class="form-control" />
-
+                        <input asp-for="Name" type="text" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
                     <div class="form-group col-6">
                         <label asp-for="Amount"></label>
-                        <input asp-for="Amount"
-                               type="text"
-                               class="form-control" />
-
+                        <input asp-for="Amount" type="text" class="form-control" />
                         <span asp-validation-for="Amount" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Description"></label>
-
-                    <textarea asp-for="Description"
-                              class="form-control">
-        </textarea>
+                    <textarea asp-for="Description" class="form-control"></textarea>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-4 my-auto">
-                        <div class="custom-control custom-checkbox my-3 ">
-                            <input asp-for="HasDeadline"
-                                   type="checkbox"
-                                   class="custom-control-input has-deadline"
-                                   onchange="valueChanged()" />
+                        <div class="custom-control custom-checkbox my-3">
+                            <input asp-for="HasDeadline" type="checkbox" class="custom-control-input has-deadline" onchange="valueChanged()" />
                             <label class="custom-control-label" asp-for="HasDeadline"></label>
                         </div>
                     </div>
@@ -56,23 +42,19 @@
 
                     <div class="form-group deadline col-8" style="display: @visability">
                         <label asp-for="Deadline"></label>
-                        <input asp-for="Deadline"
-                               type="date"
-                               value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(1))"
-                               class="form-control" />
-
+                        <input asp-for="Deadline" type="date" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(1))" class="form-control" />
                         <span class="text-danger" asp-validation-for="Deadline"></span>
                     </div>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Add New Savings Goal</button>
+                <button class="btn btn-primary" type="submit">Добавить новую цель накопления</button>
             </form>
 
         </div>
     </div>
 </div>
 
-@section Scripts{ 
+@section Scripts{
     <script>
         function valueChanged() {
             if ($('.has-deadline').is(":checked"))
@@ -81,4 +63,4 @@
                 $(".deadline").hide();
         }
     </script>
-} 
+}

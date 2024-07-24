@@ -1,6 +1,4 @@
-﻿@*Total Expenses for the Month/Total Savings for the Month Card*@
-
-@model ExpenseSavingsViewModel
+﻿@model ExpenseSavingsViewModel
 
 @{
     bool hasSavings = false;
@@ -13,11 +11,9 @@
                 hasSavings = true;
         }
     }
-
 }
 
 <div class="card h-100 shadow-sm">
-
     <div class="dropdown dropleft card-menu">
         <a class="text-muted"
            href="#"
@@ -33,13 +29,13 @@
             <a asp-controller="SavingsGoal"
                asp-action="Goals"
                class="dropdown-item">
-                Savings Tracker
+                Трекер сбережений
             </a>
 
             <a asp-controller="Expense"
                asp-action="Index"
                class="dropdown-item">
-                Track Expenses
+                Трекер расходов
             </a>
         </div>
     </div>
@@ -47,15 +43,15 @@
     <div class="card-body">
         <div class="row">
             <div class="col-3" style="border-right: 2px solid var(--gray)">
-                <p class="text-larger text-center mb-0">Total Spent</p>
-                <p class="text-center m-0 text-muted"><small>this month</small></p>
+                <p class="text-larger text-center mb-0">Всего потрачено</p>
+                <p class="text-center m-0 text-muted"><small>в этом месяце</small></p>
 
                 <h2 class="text-center mt-2">R @String.Format("{0:0.00}", Model.TotalExpenses)</h2>
             </div>
 
             <div class="col-3">
-                <p class="text-larger text-center mb-0">Total Saved</p>
-                <p class="text-center m-0 text-muted"><small>this month</small></p>
+                <p class="text-larger text-center mb-0">Всего сэкономлено</p>
+                <p class="text-center m-0 text-muted"><small>в этом месяце</small></p>
 
                 <h2 class="text-center mt-2">R @String.Format("{0:0.00}", Model.TotalSaved)</h2>
             </div>
@@ -71,19 +67,17 @@
                 <div class="col-6">
                     <div class="text-center">
                         <p class="m-0 text-muted">
-                            No savings were found for the past 3 months
+                            За последние 3 месяца сбережений не найдено
                         </p>
 
                         <a asp-controller="Savings"
                            class="text-larger">
-                            start recording savings
+                            начать запись сбережений
                         </a>
                     </div>
                 </div>
             }
         </div>
-
-
     </div>
 </div>
 

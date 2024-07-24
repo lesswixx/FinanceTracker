@@ -1,12 +1,10 @@
-﻿@* Savings Goal Card *@
-
-@model SavingsGoalProgressViewModel
+﻿@model SavingsGoalProgressViewModel
 
 <div class="card h-100 shadow-sm">
 
     @if (Model.SavingsGoal.Id != Guid.Empty)
     {
-        <div class="dropdown dropleft card-menu ">
+        <div class="dropdown dropleft card-menu">
             <a class="text-muted"
                href="#"
                role="button"
@@ -24,7 +22,7 @@
                    asp-route-type="0"
                    role="button"
                    class="dropdown-item">
-                    Add to Savings
+                    Добавить к сбережениям
                 </a>
 
                 <a asp-action="Add"
@@ -33,23 +31,22 @@
                    asp-route-type="1"
                    role="button"
                    class="dropdown-item">
-                    Subtract from Savings
+                    Вычесть из сбережений
                 </a>
 
                 <a asp-action="Edit"
                    asp-controller="SavingsGoal"
                    asp-route-id="@Model.SavingsGoal.Id"
                    class="dropdown-item">
-                    Edit this Savings Goal
+                    Изменить эту цель по сбережениям
                 </a>
-
 
                 <div class="dropdown-divider"></div>
 
                 <a asp-action="Goals"
                    asp-controller="SavingsGoal"
                    class="dropdown-item">
-                    Manage Savings Goals
+                    Управление целями по сбережениям
                 </a>
             </div>
         </div>
@@ -67,16 +64,14 @@
 
                 <h3 class="m-0">R @String.Format("{0:0.00}", Model.SavingsGoal.Amount)</h3>
             </div>
-
         </div>
-
 
         <div class="card-body d-flex flex-column">
             <p class="mb-3 text-larger">@Model.SavingsGoal.Description</p>
 
             @if (Model.SavingsGoal.HasDeadline)
             {
-                <p class="m-0 text-muted">deadline: </p>
+                <p class="m-0 text-muted">Крайний срок:</p>
                 <p class="m-0 text-danger">@Model.SavingsGoal.Deadline.ToShortDateString()</p>
             }
 
@@ -94,12 +89,12 @@
     else
     {
         <div class="card-body text-center">
-            <p class="text-muted m-0">No savings goals were found</p>
+            <p class="text-muted m-0">Цели по сбережениям не найдены</p>
 
             <a asp-action="Add"
                asp-controller="SavingsGoal"
                class="text-larger">
-                create your first goal
+                Создайте вашу первую цель
             </a>
         </div>
     }
